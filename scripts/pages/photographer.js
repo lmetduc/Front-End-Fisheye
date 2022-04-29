@@ -13,6 +13,11 @@ async function init() {
     const { photographers } = await getPhotographers();
     const photographer = photographers.find(photographer => photographer.id.toString() === id.toString());
     console.log(photographer);
+    const photographerModel = photographerFactory(photographer);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    const photographHeader = document.querySelector('.photograph-header')
+    photographHeader.appendChild(userCardDOM);
+
 };
 
 init();

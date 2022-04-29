@@ -11,6 +11,7 @@ function photographerFactory(data) {
 
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+
         const photographerLink = document.createElement ('a');
         photographerLink.href = "photographer.html?id="+id;
         article.appendChild(photographerLink);
@@ -42,5 +43,6 @@ function photographerFactory(data) {
 
         return (article);
     }
+    
     return { name, picture, getUserCardDOM }
 }
