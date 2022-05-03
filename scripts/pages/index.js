@@ -1,31 +1,34 @@
-    
-    async function getPhotographers() {
-        const { photographers } = await fetch("data/photographers.json")
-            .then(data => data.json());
-    
-        let photographerList = [];
-        photographers.forEach(photographer => {
-            const photographerModel = photographerFactory(photographer);
-            photographerList.push(photographerModel);
-        })
-        return photographerList;
-    }
+import { PhotographerCard } from "../templates/photographerCard.js";
+import { PhotographerFactory } from "../factories/photographerFactory.js";
 
-    async function displayData(photographers) {
-        const photographersSection = document.querySelector(".photographer_section");
+async function getPhotographers() {
+    const { photographers } = await fetch("data/photographers.json")
+        .then(data => data.json());
 
-        photographers.forEach((photographer) => {
-            const userCardDOM = photographer.getUserCardDOM();
-            photographersSection.appendChild(userCardDOM);
-        });
-    };
+    let photographerList = [];
+    photographers.forEach(photographer => {
+        const photographerModel = new PhotographerFactory(photographer, 'json');
+        photographerList.push(photographerModel);
+    })
+    return photographerList;
+}
 
-    async function init() {
-        // Récupère les datas des photographes
-        const photographers = await getPhotographers();
-        displayData(photographers);
-    };
-    
-    init();
+async function displayData(photographers) {
+    const photographersSection = document.querySelector(".photographer_section");
+
+    photographers.forEach((photographer) => {
+        const photographerCard = new PhotographerCard(photographer)
+        const userCardDOM = photographerCard.getUserCardDOM();
+        photographersSection.appendChild(userCardDOM);
+    });
+};
+
+async function init() {
+    // Récupère les datas des photographes
+    const photographers = await getPhotographers();
+    displayData(photographers);
+};
+
+init();
 
     
