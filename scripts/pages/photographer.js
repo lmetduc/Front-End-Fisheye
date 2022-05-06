@@ -23,22 +23,23 @@ async function getMediaFromPhotographer(photographer) {
 
     let mediaForPhotographer = [];
 
-    for(let i = 0; i < media.length; i++) {
-        if (media[i].photographerId.toString() === photographer.id.toString()) {
-            mediaForPhotographer.push(media[i]);
+    media.forEach(m => {
+        if (m.photographerId.toString() === photographer.id.toString()) {
+            mediaForPhotographer.push(m);
         }
-    }
-
-    for(let i = 0; i < mediaForPhotographer.length; i++) {
+    });
+    
+    // verifier que la propriete video existe puis image
+    mediaForPhotographer.forEach(m => {
         let type;
-        if (mediaForPhotographer[i].video !== undefined) {
+        if (m.video !== undefined) {
             type = "video";
-        } else if (mediaForPhotographer[i].image !== undefined) {
+        } else if (m.image !== undefined) {
             type = "image";
         }
-        const media = new MediaFactory(mediaForPhotographer[i], type);
+        const media = new MediaFactory(m, type);
         mediaList.push(media);
-    }
+    })
 
     return mediaList;
 }

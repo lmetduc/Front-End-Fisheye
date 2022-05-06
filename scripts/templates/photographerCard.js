@@ -2,7 +2,9 @@ export class PhotographerCard {
     constructor(photographer) {
         this.photographer = photographer;
     }
-
+/*
+* Creation d'un nouvel element du DOM dans le html
+*/
     getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
