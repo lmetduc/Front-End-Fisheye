@@ -9,32 +9,53 @@ export class Image {
         this.title = data.title;
     }
 
-    getDate() {
-        return this.date;
+    get date() {
+        return this._date;
+    }
+    set date(date) {
+        this._date = date;
     }
 
-    getId() {
-        return this.id;
+    get id() {
+        return this._id;
+    }
+    set id(id) {
+        this._id = id;
     }
 
-    getImage() {
-        return this.image;
+    get image() {
+        return this._image;
+    }
+    set image(image) {
+        this._image = image;
     }
 
-    getLikes() {
-        return this.likes;
+    get likes() {
+        return this._likes;
+    }
+    set likes(likes) {
+        this._likes = likes;
     }
 
-    getPhotographerId() {
-        return this.photographerId;
+    get photographerId() {
+        return this._photographerId;
+    }
+    set photographerId(photographerId) {
+        this._photographerId = photographerId;
     }
 
-    getPrice() {
-        return this.price;
+    get price() {
+        return this._price;
+    }
+    set price(price) {
+        this._price = price;
     }
 
-    getTitle() {
-        return this.title;
+    get title() {
+        return this._title;
+    }
+    set title(title) {
+        this._title = title;
     }
 
 }

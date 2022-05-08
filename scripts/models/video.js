@@ -9,32 +9,53 @@ export class Video {
         this.video = data.video;
     }
     
-    getDate() {
-        return this.date;
+    get date() {
+        return this._date;
+    }
+    set date(date) {
+        this._date = date;
     }
 
-    getId() {
+    get id() {
         return this.id;
     }
-
-    getLikes() {
-        return this.likes;
+    set id(id) {
+        this._id = id;
     }
 
-    getPhotographerId() {
-        return this.photographerId;
+    get likes() {
+        return this._likes;
+    }
+    set likes(likes) {
+        this._likes = likes;
     }
 
-    getPrice() {
-        return this.price;
+    get photographerId() {
+        return this._photographerId;
+    }
+    set photographerId(photographerId) {
+        this._photographerId = photographerId;
     }
 
-    getTitle() {
-        return this.title;
+    get price() {
+        return this._price;
+    }
+    set price(price) {
+        this._price = price;
     }
 
-    getVideo() {
-        return this.video;
+    get title() {
+        return this._title;
+    }
+    set title(title) {
+        this._title = title;
+    }
+
+    get video() {
+        return this._video;
+    }
+    set video(video) {
+        this._video = video;
     }
 
 }

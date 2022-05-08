@@ -18,42 +18,49 @@ async function getPhotographer() {
 async function getMediaFromPhotographer(photographer) {
     let mediaList = [];
 
-    const { media } = await fetch("data/photographers.json")
-    .then(photographers => photographers.json());
+    const medias = await fetch("data/photographers.json")
+    .then(photographers => photographers.json())
+    .then(photographers => photographers.media);
 
     let mediaForPhotographer = [];
 
-    media.forEach(m => {
-        if (m.photographerId.toString() === photographer.id.toString()) {
-            mediaForPhotographer.push(m);
+    medias.forEach(item => {
+        if (item.photographerId.toString() === photographer.id.toString()) {
+            mediaForPhotographer.push(item);
         }
     });
     
     // verifier que la propriete video existe puis image
-    mediaForPhotographer.forEach(m => {
-        let type;
-        if (m.video !== undefined) {
-            type = "video";
-        } else if (m.image !== undefined) {
-            type = "image";
-        }
-        const media = new MediaFactory(m, type);
+    mediaForPhotographer.forEach(item => {
+        const type = getMediaType(item);
+        const media = new MediaFactory(item, type);
         mediaList.push(media);
     })
 
     return mediaList;
 }
 
+function getMediaType(media) {
+    if (media.video !== undefined) {
+        return "video";
+    } else if (media.image !== undefined) {
+        return "image";
+    }
+    return undefined
+}
+
 async function init() {
     const photographer = await getPhotographer();
-    const media = await getMediaFromPhotographer(photographer);
-    console.log(media);
-
+    const medias = await getMediaFromPhotographer(photographer);
+    console.log(medias);
+// Remplissage du header avec les donnees photographes
     const photographerCard = new PhotographerCard(photographer)
     const userCardDOM = photographerCard.getUserCardDOM();
     const photographHeader = document.querySelector('.photograph-header')
     photographHeader.appendChild(userCardDOM);
-
+// Remplissage du header avec les donnees media
+// Recuperer ou le mettre dans le dom
+// Parcourir les medias avec forEach et à chaque media on va ajouter la ou le dom se situe
 };
 
 init();

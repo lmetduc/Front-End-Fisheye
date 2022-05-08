@@ -9,31 +9,53 @@ export class Photographer {
         this.portrait = data.portrait;
     }
 
-    getName() {
-        return this.name;
+    get name() {
+        return this._name.toUpperCase();
+    }
+    set name(name) {
+        this._name = name;
     }
 
-    getId() {
-        return this.id;
+    get id() {
+        return this._id;
+    }
+    set id(id) {
+        this._id = id;
     }
 
-    getCity() {
-        return this.city;
+    get city() {
+        return this._city;
+    }
+    set city(city) {
+        this._city = city;
     }
 
-    getCountry() {
-        return this.country;
+    get country() {
+        return this._country;
+    }
+    set country(country) {
+        this._country = country;
     }
 
-    getTagline() {
-        return this.tagline;
+    get tagline() {
+        return this._tagline;
+    }
+    set tagline(tagline) {
+        this._tagline = tagline;
     }
 
-    getPrice() {
-        return this.price;
+    get price() {
+        return this._price;
+    }
+    set price(price) {
+        this._price = price;
     }
 
-    getPortrait() {
-        return this.portrait;
+    get portrait() {
+        return this._portrait;
     }
+    set portrait(portrait) {
+        this._portrait = portrait;
+    }
+
 }
