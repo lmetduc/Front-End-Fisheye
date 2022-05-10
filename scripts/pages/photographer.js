@@ -1,6 +1,7 @@
 import { PhotographerCard } from "../templates/photographerCard.js";
 import { PhotographerFactory } from "../factories/photographerFactory.js";
 import { MediaFactory } from "../factories/mediaFatory.js";
+import { MediaCard } from "../templates/mediaCard.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
 async function getPhotographer() {
@@ -51,13 +52,19 @@ function getMediaType(media) {
 
 async function init() {
     const photographer = await getPhotographer();
-    const medias = await getMediaFromPhotographer(photographer);
-    console.log(medias);
 // Remplissage du header avec les donnees photographes
     const photographerCard = new PhotographerCard(photographer)
     const userCardDOM = photographerCard.getUserCardDOM();
     const photographHeader = document.querySelector('.photograph-header')
     photographHeader.appendChild(userCardDOM);
+
+    const mediaSection = document.querySelector('.media-section');
+    const medias = await getMediaFromPhotographer(photographer);
+    medias.forEach(m => {
+        const mediaCard = new MediaCard(m);
+        const mediaCardDOM = mediaCard.displayMediaCard();
+        mediaSection.appendChild(mediaCardDOM);
+    });
 // Remplissage du header avec les donnees media
 // Recuperer ou le mettre dans le dom
 // Parcourir les medias avec forEach et à chaque media on va ajouter la ou le dom se situe
