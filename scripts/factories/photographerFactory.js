@@ -1,5 +1,5 @@
 import { Photographer } from "../models/photographer.js";
-
+// Photographer factory permet de creer un photographe si le type est json
 export class PhotographerFactory {
     constructor(data, type) {
         if (type === 'json') {

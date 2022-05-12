@@ -5,7 +5,11 @@ export class MediaCard {
 
     displayMediaCard () {
         const mediaCard = document.createElement('article');
+        mediaCard.classList.add('media');
 
+
+
+//verifie si image ou video au moment de l'affichage
         let media;
         if (this.media.image) {
             media = document.createElement('img');
@@ -15,16 +19,20 @@ export class MediaCard {
             media.src = `assets/photographers/${this.media.photographerId}/${this.media.video}`;
         }
 
+        media.classList.add('media-img');
         mediaCard.appendChild(media);
 
         const p = document.createElement('p');
+        p.classList.add('photo-title');
         const title = document.createElement('span');
         title.innerHTML = this.media.title;
         
         const likes = document.createElement('span');
+        likes.classList.add('likes');
         const heartIcon = document.createElement('i');
         heartIcon.classList.add('fa-regular', 'fa-heart');
         const likesCount = document.createElement('span');
+        likesCount.classList.add('number-likes');
         likesCount.innerHTML = this.media.likes;
 
         likes.appendChild(likesCount);

@@ -9,6 +9,7 @@ export class Video {
         this.video = data.video;
     }
     
+    // recupère la date de la vidéo
     get date() {
         return this._date;
     }
@@ -58,4 +59,9 @@ export class Video {
         this._video = video;
     }
 
+    // get html() {
+    //     const video = document.createElement('video');
+    //     video.src = `assets/photographers/${this.photographerId}/${this.video}`;
+    //     return video;
+    // }
 }

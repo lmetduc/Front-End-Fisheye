@@ -40,10 +40,11 @@
 
 .modal header img {
     cursor: pointer;
+    width: 16px;
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 36px;
     font-weight: normal;
     text-align: center;
 }
@@ -73,4 +74,82 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+
+.photograph-header {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+flex-wrap: wrap;
+
+}
+
+.media-section {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.media {
+    display: block;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: 50px;
+}
+
+.media-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.profile {
+    width: 200px ;
+    height: 200px;
+    object-fit: cover;
+}
+
+.photo-title {
+    display: block;
+    position: relative;
+}
+
+.error_alert {
+    color: #901C1C;
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.modal-btn {
+    position: absolute;
+    top: 200px;
+    width:400px;
+    overflow: auto;
+    text-align: center;
+}
+
+.bground {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(128, 128, 128, 0.4);
+    text-align: center;
+}
+
+
+.test {
+    width: 300px;
+    height: 40px;
+}
+
+.label {
+    font-size:22px;
 }

@@ -1,6 +1,7 @@
 import { Image } from "../models/image.js";
 import { Video } from "../models/video.js";
 
+// cree un image ou une video en fonction du type
 export class MediaFactory {
     constructor(data, type) {
         if (type === 'image') {
