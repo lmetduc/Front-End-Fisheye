@@ -1,5 +1,5 @@
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBtn = document.querySelectorAll(".contact_button");
 const formData = document.querySelectorAll(".formData");
 const modalCloseBtn = document.querySelectorAll(".close-btn");
 const confirmationMsg = document.querySelector(".confirmation__title");
@@ -55,7 +55,7 @@ function validateInput(input, value) {
 
 
   function setError(inputId, errorMsg, toRemove) {
-    const formError = document.querySelector(`#${inputId}-error`);
+    const formError = document.querySelector(".alert-error");
     const input = document.querySelector(`#${inputId}`);
   
     if (toRemove) {
@@ -105,6 +105,7 @@ function validateInput(input, value) {
 
 
 function displayModal() {
+  console.log("display")
     const modal = document.getElementById("contact_modal");
 	  modal.style.display = "block";
     modalbg.style.display = "block";
@@ -112,6 +113,7 @@ function displayModal() {
 }
 
 function closeModal() {
+  console.log("closeModal")
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     form.style.display = "block";
