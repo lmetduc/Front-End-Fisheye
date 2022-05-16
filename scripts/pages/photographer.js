@@ -4,7 +4,7 @@ import { MediaFactory } from "../factories/mediaFatory.js";
 import { MediaCard } from "../templates/mediaCard.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
-async function getPhotographer() {
+export async function getPhotographer() {
     const { photographers } = await fetch("data/photographers.json")
     .then(photographers => photographers.json());
 
@@ -53,7 +53,7 @@ function getMediaType(media) {
 
 async function init() {
     const photographer = await getPhotographer();
-// Remplissage du header avec les donnees photographes
+    // Remplissage du header avec les donnees photographes
     const photographerCard = new PhotographerCard(photographer)
     const userCardDOM = photographerCard.getUserCardDOM();
     const photographHeader = document.querySelector('.photograph-header')

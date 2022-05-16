@@ -9,34 +9,32 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-         <!--Lightbox-->
-         <section class="lightbox" role="dialog" aria-label="lightbox modal">
-          <div class="lightbox__windows">
-            <ul class="container__slide"></ul>
-            <div class="command">
-              <button class="left">
-                <em class="fas fa-chevron-left"></em>
-              </button>
-              <button class="right">
-                <em class="fas fa-chevron-right"></em>
-              </button>
-              <button class="close">
-                <em class="fas fa-times close__lightbox__media"></em>
-              </button>
-              <h2 class="lightbox__media__title">Le titre du média</h2>
-            </div>
-          </div>
-        </section>
-        
+    <!--Lightbox-->
+    <section class="lightbox">
+      <div class="lightbox__windows">
+        <ul class="container__slide"></ul>
+        <div class="command">
+          <button class="left">
+            <em class="fas fa-chevron-left"></em>
+          </button>
+          <button class="right">
+            <em class="fas fa-chevron-right"></em>
+          </button>
+          <button class="close">
+            <em class="fas fa-times close__lightbox__media"></em>
+          </button>
+          <h2 class="lightbox__media__title">Le titre du média</h2>
+        </div>
+      </div>
+    </section>
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
     <main id="main">
       <div class="photograph-header">
-
         <button class="contact_button">Contactez-moi</button>
       </div>
-        <!--Filter-->
+      <!--Filter-->
       <section class="filter">
         <h3 id="trierPar">Trier par :</h3>
         <div class="filter__menu">
@@ -54,7 +52,7 @@
         </div>
       </section>
 
-              <!--Modal-->
+      <!--Modal-->
       <div class="media-section"></div>
     </main>
     <div id="contact_modal" class="bground">
@@ -67,22 +65,34 @@
         <div class="bg">
           <form id="contact" name="contact_form" class="modal_form" method="get">
             <div>
-              <label for="prenom" class="label">Prénom</label>
-              <input class="firstName_input test" id="prenom" type="text" name="first_name"/>
-              <span id="first_error" class="error_alert"></span>
-              <label for="nom" class="label">Nom</label>
-              <input class="lastName_input test" id="nom" type="text" name="last_name"/>
-              <span id="last_error" class="error_alert"></span>
-              <label for="mail" class="label">Email</label>
-              <input class="mail_input input test" id="mail" type="text" name="mail"/>
-              <span id="mail_error" class="error_alert"></span>
-              <label for="msg" class="label">Votre message</label>
-              <textarea class="msg_input test" id="msg" type="text" name="message"></textarea>
-              <span id="msg_error" class="error_alert"></span>
+              <div class="formData">
+                <label for="prenom" class="label">Prénom</label>
+                <input class="input" id="prenom" type="text" name="first_name"/>
+                <span id="prenom_error" class="error_alert"></span>
+              </div>
+
+              <div class="formData">
+                <label for="nom" class="label">Nom</label>
+                <input class="input" id="nom" type="text" name="last_name"/>
+                <span id="nom_error" class="error_alert"></span>
+              </div>
+
+              <div class="formData">
+                <label for="mail" class="label">Email</label>
+                <input class="input" id="mail" type="text" name="mail"/>
+                <span id="mail_error" class="error_alert"></span>
+              </div>
+
+              <div class="formData">
+                <label for="msg" class="label">Votre message</label>
+                <textarea class="input" id="msg" type="text" name="message"></textarea>
+                <span id="msg_error" class="error_alert"></span>
+              </div>
             </div>
             <button class="contact_button" type="submit" value="Envoyer" name="envoyer">Envoyer</button>
           </form>
-          </div>
+          <span class="confirmation__title">PROUT</span>
+        </div>
 			</div>
       </div>
 		</div>
@@ -90,8 +100,8 @@
     <script type="module" src="scripts/factories/mediaFatory.js"></script>
     <script type="module" src="scripts/templates/photographerCard.js"></script>
     <script type="module" src="scripts/pages/photographer.js"></script>
-    <script src="scripts/utils/contactForm.js"></script>
-    <script src="scripts/utils/lightbox.js"></script>
-    <script src="scripts/utils/filter.js"></script>
+    <script type="module" src="scripts/utils/contactForm.js"></script>
+    <script type="module" src="scripts/utils/lightbox.js"></script>
+    <script type="module" src="scripts/utils/filter.js"></script>
   </body>
 </html>

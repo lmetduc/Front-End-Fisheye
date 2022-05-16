@@ -138,7 +138,7 @@ flex-wrap: wrap;
 
 .modal-btn {
     position: absolute;
-    top: 200px;
+    top: 50px;
     width:400px;
     overflow: auto;
     text-align: center;
@@ -248,5 +248,8 @@ a {
 .fa-angle-down {
     font-size: 24px;
     color: black;
+}
 
+.confirmation__title {
+    display: none;
 }
