@@ -1,93 +1,92 @@
-@import url("photographer.css");
-
 body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
 }
 
-
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  color: #901c1c;
+  margin-right: 100px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+  flex-wrap: wrap;
 }
 
 .photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
-    font-size: 28px;
-    font-weight: 100;
-    margin: 0;
+  color: #d3573c;
+  font-size: 28px;
+  font-weight: 100;
+  margin: 0;
 }
 
-article {
-    max-width: 260px;
-    max-height: 300px;
+.photographer-card {
+  max-width: 260px;
+  max-height: 300px;
 }
 
 a {
-    text-decoration: none;
-    text-align: center;
+  text-decoration: none;
+  text-align: center;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
 .photographer_section article img {
-    height: 180px;
-    width: 180px;
-    box-shadow: rgba(100, 100, 100, 0.2) 0px 3px 4px 3px;
-    object-fit: cover;
+  height: 180px;
+  width: 180px;
+  box-shadow: rgba(100, 100, 100, 0.2) 0px 3px 4px 3px;
+  object-fit: cover;
 }
 
-.location, .tagline, .price {
-    display: block;
-    text-align: center;
-    padding: 2px;
+.location,
+.tagline,
+.price {
+  display: block;
+  text-align: center;
+  padding: 2px;
 }
 
 .location {
-    font-size: 14px;
-    color: #901C1C;
+  font-size: 14px;
+  color: #901c1c;
 }
 
 .tagline {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .price {
-    font-size: 10px;
-    color: gray;
+  font-size: 10px;
+  color: gray;
 }
 
 .profile {
-    border-radius: 100%;
+  border-radius: 100%;
 }

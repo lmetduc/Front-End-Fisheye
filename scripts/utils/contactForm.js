@@ -15,9 +15,9 @@ formData.forEach((formElement) => {
   const input = formElement.querySelector(".input");
 
   input.addEventListener("keyup", function () {
-    validateInput(input.id, input.value)
+    validateInput(input.id, input.value);
   });
-})
+});
 
 function validateInput(inputId, value) {
   let isValid = true;
@@ -35,17 +35,19 @@ function validateInput(inputId, value) {
   return isValid;
 }
 
-
 function validateLength(value, minLength = 2) {
-
   if (value.trim().length < minLength) {
-    return { isValid: false, errorMsg: "Veuillez compléter votre champ avec plus de deux caractères" };
+    return {
+      isValid: false,
+      errorMsg: "Veuillez compléter votre champ avec plus de deux caractères",
+    };
   }
   return { isValid: true, errorMsg: "" };
 }
 
 function validateEmail(value) {
-  const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailPattern =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   if (value.trim().length === 0) {
     return { isValid: false, errorMsg: "Ce champ est requis" };
@@ -74,10 +76,10 @@ function validateForm(e) {
   e.preventDefault();
 
   let isValid = true;
-  
+
   formData.forEach((formElement) => {
     const input = formElement.querySelector(".input");
-    
+
     const valid = validateInput(input.id, input.value);
     if (!valid) {
       isValid = false;
