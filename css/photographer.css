@@ -192,6 +192,40 @@ form input {
 
 /** Lightbox **/
 
+.lightbox {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 10;
+  background-color: white;
+}
+
+.lightbox__windows {
+  display: flex;
+  position: relative;
+  top: 10%;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+  overflow: hidden;
+}
+
+.lightbox_images {
+  display: flex;
+  overflow: hidden;
+}
+
+.lightbox-img-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.lightbox_img {
+  width: 100%;
+  object-fit: contain;
+}
+
 /** Filter **/
 
 .filter {

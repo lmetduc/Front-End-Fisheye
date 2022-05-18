@@ -2,6 +2,7 @@ import { PhotographerCard } from "../templates/photographerCard.js";
 import { PhotographerFactory } from "../factories/photographerFactory.js";
 import { MediaFactory } from "../factories/mediaFatory.js";
 import { MediaCard } from "../templates/mediaCard.js";
+import { displayLightbox, openLightbox } from "../utils/lightbox.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
 export async function getPhotographer() {
@@ -19,7 +20,7 @@ export async function getPhotographer() {
   return photographer;
 }
 // Recuperer le fichier data/photographers.json
-async function getMediaFromPhotographer(photographer) {
+export async function getMediaFromPhotographer(photographer) {
   let mediaList = [];
 
   // Recupere la liste de tous les media dans le fichier json
@@ -74,6 +75,10 @@ async function init() {
     const mediaCard = new MediaCard(m);
     // Parcourir les medias avec forEach et à chaque media on va ajouter la ou le dom se situe
     const mediaCardDOM = mediaCard.displayMediaCard();
+    mediaCardDOM.addEventListener("click", () => {
+      displayLightbox(m, medias);
+      openLightbox();
+    });
     mediaSection.appendChild(mediaCardDOM);
   });
 }

@@ -18,7 +18,7 @@ export class Video {
   }
 
   get id() {
-    return this.id;
+    return this._id;
   }
   set id(id) {
     this._id = id;

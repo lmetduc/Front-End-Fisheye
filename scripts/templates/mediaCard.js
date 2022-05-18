@@ -1,3 +1,5 @@
+import { openLightbox } from "../utils/lightbox.js";
+
 export class MediaCard {
   constructor(media) {
     this.media = media;
