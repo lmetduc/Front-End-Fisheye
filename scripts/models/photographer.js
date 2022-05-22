@@ -10,7 +10,7 @@ export class Photographer {
   }
 
   get name() {
-    return this._name.toUpperCase();
+    return this._name;
   }
   set name(name) {
     this._name = name;

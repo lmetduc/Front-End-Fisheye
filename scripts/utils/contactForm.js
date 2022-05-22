@@ -3,6 +3,7 @@ import { getPhotographer } from "../pages/photographer.js";
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".contact_button");
 const formData = document.querySelectorAll(".formData");
+const contactTitle = document.querySelector(".contact");
 const modalCloseBtn = document.querySelectorAll(".close-btn");
 const confirmationMsg = document.querySelector(".confirmation__title");
 const confirmationBtn = document.querySelector(".button-confirm.close-btn");
@@ -116,6 +117,7 @@ function closeModal() {
 // Rempli le message de confirmation avec le nom du photographe
 async function init() {
   const photographer = await getPhotographer();
+  contactTitle.innerHTML = `Contactez-moi ${photographer.name}`;
   confirmationMsg.innerHTML = `Merci d'avoir contacté ${photographer.name} !`;
 }
 

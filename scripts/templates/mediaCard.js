@@ -30,7 +30,7 @@ export class MediaCard {
     const likes = document.createElement("span");
     likes.classList.add("likes");
     const heartIcon = document.createElement("i");
-    heartIcon.classList.add("fa-regular", "fa-heart");
+    heartIcon.classList.add("fa-solid", "fa-heart");
     const likesCount = document.createElement("span");
     likesCount.classList.add("number-likes");
     likesCount.innerHTML = this.media.likes;

@@ -6,8 +6,8 @@
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Fisheye - photographe </title>
 </head>
@@ -16,18 +16,17 @@
   <!--Lightbox-->
   <section class="lightbox">
     <div class="lightbox__windows">
-        <!-- 
-        <button class="close">
-          <em class="fas fa-times close__lightbox__media"></em>
-        </button> -->
-        <button class="lightbox_left">
-          <em class="fas fa-chevron-left"></em>
-        </button>
-        <div class="lightbox_images"></div>
-        <button class="lightbox_right">
-          <em class="fas fa-chevron-right"></em>
-        </button>
-        <h2 class="lightbox__media__title">Le titre du média</h2>
+      <button class="close">
+        <i class="fa-solid fa-xmark close__lightbox__media"></i>
+      </button>
+      <button class="lightbox_left">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="lightbox_images">
+      </div>
+      <button class="lightbox_right">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
     </div>
   </section>
   <header>
@@ -47,15 +46,6 @@
             <option>Date</option>
             <option>Titre</option>
           </select>
-          <!-- <a href="#" class="filter__select__menu">
-            <span>Popularité</span>
-            <div class="arrow"><i class="fas fa-angle-down"></i></div>
-          </a>
-          <div class="filter__option__container" id="filter__option">
-            <a href="#" class="filter__option selected" data-value="popularite">Popularité</a>
-            <a href="#" class="filter__option">Date</a>
-            <a href="#" class="filter__option">Titre</a>
-          </div> -->
         </div>
       </div>
     </section>
@@ -68,7 +58,7 @@
       <div class="modal modal-btn">
         <header>
           <h2 class="contact">Contactez-moi</h2>
-          <img class="close-btn" src="assets/icons/close.svg" />
+          <i class="fa-solid fa-xmark close__modal close-btn"></i>
         </header>
         <div class="bg">
           <form id="contact" name="contact_form" class="modal_form" method="get">
