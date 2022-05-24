@@ -3,6 +3,7 @@ import { PhotographerFactory } from "../factories/photographerFactory.js";
 import { MediaFactory } from "../factories/mediaFatory.js";
 import { MediaCard } from "../templates/mediaCard.js";
 import { displayLightbox, openLightbox } from "../utils/lightbox.js";
+import { PhotographerFooterInfo } from "../templates/photographerFooterInfo.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
 export async function getPhotographer() {
@@ -71,6 +72,14 @@ export function displayMedias(medias) {
   });
 }
 
+function displayInfoFooter(photographer, medias) {
+  const main = document.querySelector("main");
+  const infoFooterCard = new PhotographerFooterInfo(photographer, medias);
+  const photographerFooterInfo = infoFooterCard.displayPhotographerFooterInfo();
+
+  main.appendChild(photographerFooterInfo);
+}
+
 async function init() {
   const photographer = await getPhotographer();
   // Remplissage du header avec les donnees photographes
@@ -87,6 +96,8 @@ async function init() {
   let medias = await getMediaFromPhotographer(photographer);
   medias = medias.sort((a, b) => b.likes - a.likes);
   displayMedias(medias);
+
+  displayInfoFooter(photographer, medias);
 }
 
 init();

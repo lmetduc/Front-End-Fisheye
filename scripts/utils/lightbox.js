@@ -47,6 +47,7 @@ export function displayLightbox(media, medias) {
     } else {
       tag = document.createElement("video");
       tag.src = `assets/photographers/${media.photographerId}/${media.video}`;
+      tag.controls = true;
     }
     tag.classList.add("lightbox_img");
 

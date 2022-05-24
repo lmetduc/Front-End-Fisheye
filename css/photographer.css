@@ -364,3 +364,19 @@ a {
 .confirmation__title {
   display: none;
 }
+
+.photographer-info-container {
+  position: sticky;
+  bottom: 0;
+  float: right;
+  margin-right: 40px;
+  width: 200px;
+  background-color: #db8876;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: #000000;
+}
