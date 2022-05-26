@@ -1,8 +1,10 @@
-import { openLightbox } from "../utils/lightbox.js";
+import { displayMedias } from "../pages/photographer.js";
 
 export class MediaCard {
-  constructor(media) {
+  constructor(media, medias, photographer) {
     this.media = media;
+    this.medias = medias;
+    this.photographer = photographer;
   }
 
   displayMediaCard() {
@@ -30,7 +32,13 @@ export class MediaCard {
     const likes = document.createElement("span");
     likes.classList.add("likes");
     const heartIcon = document.createElement("i");
-    heartIcon.classList.add("fa-solid", "fa-heart");
+    heartIcon.classList.add("fa-heart");
+    if (this.media.liked) {
+      heartIcon.classList.add("fa-solid");
+    } else {
+      heartIcon.classList.add("fa-regular");
+    }
+
     const likesCount = document.createElement("span");
     likesCount.classList.add("number-likes");
     likesCount.innerHTML = this.media.likes;
@@ -43,6 +51,21 @@ export class MediaCard {
 
     mediaCard.appendChild(p);
 
+    heartIcon.addEventListener("click", this.likeMedia(this.media, this.photographer, this.medias));
+
     return mediaCard;
+  }
+
+  likeMedia(media, photographer, medias) {
+    return () => {
+      if (media.liked === true) {
+        media.likes -= 1;
+      } else {
+        media.likes += 1;
+      }
+      media.liked = !media.liked;
+    
+      displayMedias(photographer, medias);
+    }
   }
 }

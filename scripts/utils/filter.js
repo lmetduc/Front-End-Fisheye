@@ -1,23 +1,57 @@
-import { getPhotographer, displayMedias, getMediaFromPhotographer } from '../pages/photographer.js';
+import {
+  getPhotographer,
+  displayMedias,
+  getMediaFromPhotographer,
+} from "../pages/photographer.js";
 
-const filterMenu = document.querySelector(".filter__menu");
 const filterSelect = document.querySelector(".filter__select");
-const filterSelectTrigger = document.querySelector(".filter__select__menu");
-const filterOptions = document.querySelectorAll(".filter__option");
+const filterSelectOption = document.querySelector(".filter__select__option");
+const like = document.querySelector(".likes");
+const date = document.querySelector(".date");
+const title = document.querySelector(".title");
 
-filterSelect.addEventListener("change", sortMedias);
+filterSelect.addEventListener("click", displayOptions);
+like.addEventListener("click", function () {
+  sortMedias("like");
+  closeOptions();
+  updateValue("Popularité");
+});
+date.addEventListener("click", function () {
+  sortMedias("date");
+  closeOptions();
+  updateValue("Date");
+});
+title.addEventListener("click", function () {
+  sortMedias("title");
+  closeOptions();
+  updateValue("Titre");
+});
 
-async function sortMedias(e) {
+function displayOptions() {
+  filterSelectOption.style.display = "block";
+  filterSelect.style.display = "none";
+}
+
+function closeOptions() {
+  filterSelectOption.style.display = "none";
+  filterSelect.style.display = "block";
+}
+
+function updateValue(value) {
+  filterSelect.innerHTML = value;
+}
+
+async function sortMedias(sortType) {
   const photographer = await getPhotographer();
   const medias = await getMediaFromPhotographer(photographer);
   let mediasSorted = medias;
-  if (e.target.value === 'like') {
+  if (sortType === "like") {
     mediasSorted = medias.sort((a, b) => b.likes - a.likes);
-  } else if (e.target.value === 'date') {
+  } else if (sortType === "date") {
     mediasSorted = medias.sort((a, b) => new Date(b.date) - new Date(a.date));
-  } else if (e.target.value === 'title') {
+  } else if (sortType === "title") {
     mediasSorted = medias.sort((a, b) => a.title.localeCompare(b.title));
   }
 
-  displayMedias(mediasSorted); 
+  displayMedias(photographer, mediasSorted);
 }

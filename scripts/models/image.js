@@ -7,6 +7,7 @@ export class Image {
     this.photographerId = data.photographerId;
     this.price = data.price;
     this.title = data.title;
+    this._liked = false;
   }
 
   get date() {
@@ -56,5 +57,12 @@ export class Image {
   }
   set title(title) {
     this._title = title;
+  }
+
+  get liked() {
+    return this._liked;
+  }
+  set liked(liked) {
+    this._liked = liked;
   }
 }

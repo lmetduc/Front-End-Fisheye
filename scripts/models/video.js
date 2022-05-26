@@ -7,6 +7,7 @@ export class Video {
     this.price = data.price;
     this.title = data.title;
     this.video = data.video;
+    this._liked = false;
   }
 
   // recupère la date de la vidéo
@@ -59,9 +60,10 @@ export class Video {
     this._video = video;
   }
 
-  // get html() {
-  //     const video = document.createElement('video');
-  //     video.src = `assets/photographers/${this.photographerId}/${this.video}`;
-  //     return video;
-  // }
+  get liked() {
+    return this._liked;
+  }
+  set liked(liked) {
+    this._liked = liked;
+  }
 }
