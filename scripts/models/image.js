@@ -7,7 +7,7 @@ export class Image {
     this.photographerId = data.photographerId;
     this.price = data.price;
     this.title = data.title;
-    this._liked = false;
+    this.liked = false;
   }
 
   get date() {

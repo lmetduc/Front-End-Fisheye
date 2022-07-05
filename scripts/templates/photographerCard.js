@@ -11,6 +11,7 @@ export class PhotographerCard {
 
     const img = document.createElement("img");
     img.classList.add("profile");
+    img.alt=`Photo de profil de ${this.photographer.name}`;
 
     const picture = `assets/photographers/Photographers ID Photos/${this.photographer.portrait}`;
     img.setAttribute("src", picture);
@@ -82,6 +83,7 @@ export class PhotographerCard {
   getPhotographerProfilePicture() {
     const img = document.createElement("img");
     img.classList.add("profile");
+    img.alt=`Photo de profil de ${this.photographer.name}`;
     const picture = `assets/photographers/Photographers ID Photos/${this.photographer.portrait}`;
     img.setAttribute("src", picture);
 

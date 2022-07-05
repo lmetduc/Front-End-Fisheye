@@ -56,22 +56,21 @@ function getMediaType(media) {
   return undefined;
 }
 
-export function displayMedias(photographer, medias) {
+export function displayMedias(medias) {
   const mediaSection = document.querySelector(".media-section");
   mediaSection.innerHTML = '';
   medias.forEach((m) => {
     // Recuperer ou le mettre dans le dom
-    const mediaCard = new MediaCard(m, medias, photographer);
+    const mediaCard = new MediaCard(m, medias);
     // Parcourir les medias avec forEach et à chaque media on va ajouter la ou le dom se situe
     const mediaCardDOM = mediaCard.displayMediaCard();
-    mediaCardDOM.querySelector(".media-img").addEventListener("click", () => {
+    mediaCardDOM.querySelector(".media-img-link").addEventListener("click", (e) => {
+      e.preventDefault();
       displayLightbox(m, medias);
       openLightbox();
     });
     mediaSection.appendChild(mediaCardDOM);
   });
-
-  displayInfoFooter(photographer, medias);
 }
 
 function displayInfoFooter(photographer, medias) {
@@ -103,7 +102,8 @@ async function init() {
   let medias = await getMediaFromPhotographer(photographer);
   medias = medias.sort((a, b) => b.likes - a.likes);
 
-  displayMedias(photographer, medias);
+  displayMedias(medias);
+  displayInfoFooter(photographer, medias);
 }
 
 init();

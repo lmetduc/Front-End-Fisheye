@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/photographer.css" rel="stylesheet" type="text/css" />
@@ -14,92 +14,91 @@
 
 <body>
   <!--Lightbox-->
-  <section class="lightbox">
+  <section class="lightbox" role="dialog">
     <div class="lightbox__windows">
-      <button class="close">
+      <button class="close" aria-label="Fermer la fenêtre">
         <i class="fa-solid fa-xmark close__lightbox__media"></i>
       </button>
-      <button class="lightbox_left">
+      <button class="lightbox_left" aria-label="Image précédente">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
       <div class="lightbox_images">
       </div>
-      <button class="lightbox_right">
+      <button class="lightbox_right" aria-label="Image suivante">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
     </div>
   </section>
   <header>
-    <img src="assets/images/logo.png" class="logo" />
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye logo" /></a>
   </header>
   <main id="main">
     <div class="photograph-header">
-      <button class="contact_button">Contactez-moi</button>
+      <button class="contact_button" aria-label="Contacter le photographe">Contactez-moi</button>
     </div>
     <!--Filter-->
     <section class="filter">
       <h3 id="trierPar">Trier par :</h3>
       <div class="filter__menu">
-          <div class="filter__select">Popularité</div>
-          <div class="filter__select__option">
-            <span class="likes select__option">Popularité</span>
-            <span class="date select__option">Date</span>
-            <span class="title select__option">Titre</span>
-          </div>
+
+        <div class="filter__select">
+          <!-- <a href aria-label="Cliquer sur le filtre"> -->
+            <label>Popularité</label>
+            <i class="filter__arrow fas fa-angle-down"></i>
+          <!-- </a> -->
+        </div>
+        <div class="filter__select__option"></div>
+
       </div>
+
     </section>
 
     <!--Modal-->
     <div class="media-section"></div>
-  </main>
-  <div id="contact_modal" class="bground">
-    <div class="modal_bg">
-      <div class="modal modal-btn">
-        <header>
-          <h2 class="contact">Contactez-moi</h2>
-          <i class="fa-solid fa-xmark close__modal close-btn"></i>
-        </header>
-        <div class="bg">
-          <form id="contact" name="contact_form" class="modal_form" method="get">
-            <div>
-              <div class="formData">
-                <label for="prenom" class="label">Prénom</label>
-                <input class="input" id="prenom" type="text" name="first_name" />
-                <span id="prenom_error" class="error_alert"></span>
-              </div>
+    <!--</main>-->
+    <div id="contact_modal" class="bground">
+      <div class="modal_bg">
+        <div class="modal modal-btn">
+          <header>
+            <h2 class="contact">Contactez-moi</h2>
+            <i class="fa-solid fa-xmark close__modal close-btn"></i>
+          </header>
+          <div class="bg">
+            <form id="contact" name="contact_form" class="modal_form" method="get">
+              <div>
+                <div class="formData">
+                  <label for="prenom" class="label">Prénom</label>
+                  <input class="input" id="prenom" type="text" name="first_name" />
+                  <span id="prenom_error" class="error_alert"></span>
+                </div>
 
-              <div class="formData">
-                <label for="nom" class="label">Nom</label>
-                <input class="input" id="nom" type="text" name="last_name" />
-                <span id="nom_error" class="error_alert"></span>
-              </div>
+                <div class="formData">
+                  <label for="nom" class="label">Nom</label>
+                  <input class="input" id="nom" type="text" name="last_name" />
+                  <span id="nom_error" class="error_alert"></span>
+                </div>
 
-              <div class="formData">
-                <label for="mail" class="label">Email</label>
-                <input class="input" id="mail" type="text" name="mail" />
-                <span id="mail_error" class="error_alert"></span>
-              </div>
+                <div class="formData">
+                  <label for="mail" class="label">Email</label>
+                  <input class="input" id="mail" type="text" name="mail" />
+                  <span id="mail_error" class="error_alert"></span>
+                </div>
 
-              <div class="formData">
-                <label for="msg" class="label">Votre message</label>
-                <textarea class="input" id="msg" type="text" name="message"></textarea>
-                <span id="msg_error" class="error_alert"></span>
+                <div class="formData">
+                  <label for="msg" class="label">Votre message</label>
+                  <textarea class="input" id="msg" type="text" name="message"></textarea>
+                  <span id="msg_error" class="error_alert"></span>
+                </div>
               </div>
-            </div>
-            <button class="contact_button" type="submit" value="Envoyer" name="envoyer">Envoyer</button>
-          </form>
-          <span class="confirmation__title">PROUT</span>
+              <button class="contact_button" type="submit" value="Envoyer" name="envoyer">Envoyer</button>
+            </form>
+            <span class="confirmation__title">TEST</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script type="module" src="scripts/factories/photographerFactory.js"></script>
-  <script type="module" src="scripts/factories/mediaFatory.js"></script>
-  <script type="module" src="scripts/templates/photographerCard.js"></script>
-  <script type="module" src="scripts/templates/photographerFooterInfo.js"></script>
+  </main>
   <script type="module" src="scripts/pages/photographer.js"></script>
-  <script type="module" src="scripts/utils/contactForm.js"></script>
-  <script type="module" src="scripts/utils/lightbox.js"></script>
   <script type="module" src="scripts/utils/filter.js"></script>
 </body>
 

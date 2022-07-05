@@ -160,7 +160,7 @@ form textarea {
   color: #901c1c;
 }
 
-.number-likes {
+.number-likes, .total-likes {
   margin-right: 10px;
 }
 
@@ -306,69 +306,76 @@ a {
 
 .filter__menu {
   width: 224px;
+  position: relative;
 }
 
 .filter__select {
   position: relative;
   display: flex;
-  flex-direction: column;
-}
-
-.filter__select__menu {
-  position: relative;
-  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 32px;
+  justify-content: space-between;
   font-size: 22px;
-  height: 64px;
+  height: 56px;
   color: white;
-  line-height: 100px;
+  line-height: 55px;
   background: #901c1c;
-  font-weight: 300;
   cursor: pointer;
   border-radius: 10px;
+  font-weight: bold;
+  object-fit: cover;
+  padding: 0 20px;
+}
+
+.filter__arrow {
+  color: white;
 }
 
 .filter__select__option {
-  position: relative;
-  display: none;
-  margin: 0 32px 0;
-  font-weight: 400;
-  color: black;
-  line-height: 88px;
-  cursor: pointer;
-  font-size: 22px;
-}
-
-.filter__option__container {
   position: absolute;
-  display: block;
-  top: 100%;
-  left: 0;
-  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  font-weight: bold;
   background: #901c1c;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  color: white;
+  border-radius: 10px ;
+  text-align: center;
+  justify-content: center;
+  z-index: 1;
+  width: 224px;
+  top: -28px;
 }
 
 .select__option {
-  display: block;
-  font-size: 16px;
+  display: flex;
+  font-size: 22px;
+  margin: 0 20px;
+  align-items: center;
+  border-top-width: 200px;
+  border-top-color: white;
+  height: 56px;
+  cursor: pointer;
+}
+
+.selected__option {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selected__option label {
+  cursor: pointer;
+}
+
+.select__option:not(:last-child) {
+  border-bottom: 1px solid white;
 }
 
 .arrow {
   position: relative;
   height: 16px;
   width: 16px;
-}
-
-.fa-angle-down {
-  font-size: 24px;
-  color: black;
 }
 
 .confirmation__title {

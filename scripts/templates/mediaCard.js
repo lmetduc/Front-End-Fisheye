@@ -1,28 +1,30 @@
-import { displayMedias } from "../pages/photographer.js";
-
 export class MediaCard {
-  constructor(media, medias, photographer) {
+  constructor(media, medias) {
     this.media = media;
     this.medias = medias;
-    this.photographer = photographer;
   }
 
   displayMediaCard() {
     const mediaCard = document.createElement("article");
-    mediaCard.classList.add("media");
 
     //verifie si image ou video au moment de l'affichage
     let media;
     if (this.media.image) {
       media = document.createElement("img");
       media.src = `assets/photographers/${this.media.photographerId}/${this.media.image}`;
+      media.alt = `Image ${this.media.title}`;
     } else {
       media = document.createElement("video");
       media.src = `assets/photographers/${this.media.photographerId}/${this.media.video}`;
     }
-
     media.classList.add("media-img");
-    mediaCard.appendChild(media);
+    
+    const a = document.createElement("a");
+    a.classList.add("media-img-link");
+    a.href = "";
+    
+    a.appendChild(media);
+    mediaCard.appendChild(a);
 
     const p = document.createElement("p");
     p.classList.add("photo-title");
@@ -32,7 +34,7 @@ export class MediaCard {
     const likes = document.createElement("span");
     likes.classList.add("likes");
     const heartIcon = document.createElement("i");
-    heartIcon.classList.add("fa-heart");
+    heartIcon.classList.add("fa-heart", `media-heart-${this.media.id}`);
     if (this.media.liked) {
       heartIcon.classList.add("fa-solid");
     } else {
@@ -40,7 +42,7 @@ export class MediaCard {
     }
 
     const likesCount = document.createElement("span");
-    likesCount.classList.add("number-likes");
+    likesCount.classList.add("number-likes", `media-likes-${this.media.id}`);
     likesCount.innerHTML = this.media.likes;
 
     likes.appendChild(likesCount);
@@ -51,21 +53,44 @@ export class MediaCard {
 
     mediaCard.appendChild(p);
 
-    heartIcon.addEventListener("click", this.likeMedia(this.media, this.photographer, this.medias));
+    heartIcon.addEventListener(
+      "click",
+      this.likeMedia(this.media, this.medias)
+    );
 
     return mediaCard;
   }
 
-  likeMedia(media, photographer, medias) {
-    return () => {
+  likeMedia(media, medias) {
+    return function () {
       if (media.liked === true) {
         media.likes -= 1;
       } else {
         media.likes += 1;
       }
       media.liked = !media.liked;
-    
-      displayMedias(photographer, medias);
-    }
+
+      const currentMediaLike = document.querySelector(
+        `.media-likes-${media.id}`
+      );
+      currentMediaLike.innerHTML = media.likes;
+      const currentMediaHeart = document.querySelector(
+        `.media-heart-${media.id}`
+      );
+      if (media.liked) {
+        currentMediaHeart.classList.remove("fa-regular");
+        currentMediaHeart.classList.add("fa-solid");
+      } else {
+        currentMediaHeart.classList.remove("fa-solid");
+        currentMediaHeart.classList.add("fa-regular");
+      }
+
+      let totalLikes = 0;
+      medias.forEach((m) => {
+        totalLikes += m.likes;
+      });
+      const totalLikeCount = document.querySelector(".total-likes");
+      totalLikeCount.innerHTML = totalLikes;
+    };
   }
 }

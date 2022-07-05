@@ -7,7 +7,7 @@ export class Video {
     this.price = data.price;
     this.title = data.title;
     this.video = data.video;
-    this._liked = false;
+    this.liked = false;
   }
 
   // recupère la date de la vidéo

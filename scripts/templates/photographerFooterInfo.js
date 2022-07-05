@@ -11,7 +11,7 @@ export class PhotographerFooterInfo {
         const likesCount = document.createElement("div");
         
         const likesCountSpan = document.createElement("span");
-        likesCountSpan.classList.add("number-likes");
+        likesCountSpan.classList.add("total-likes");
 
         let likes = 0;
         this.medias.forEach(m => {
