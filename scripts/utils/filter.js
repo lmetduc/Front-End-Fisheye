@@ -4,6 +4,7 @@ import {
   getMediaFromPhotographer,
 } from "../pages/photographer.js";
 
+const filterMenu = document.querySelector(".filter__menu");
 const filterSelect = document.querySelector(".filter__select");
 const filterSelectLabel = document.querySelector(".filter__select label");
 const filterSelectOption = document.querySelector(".filter__select__option");
@@ -23,11 +24,13 @@ function displayOptions() {
   filterSelectOption.innerHTML = "";
   buildSelectBox();
   filterSelect.style.display = "none";
+  filterMenu.ariaExpanded = true;
 }
 
 function closeOptions() {
   filterSelectOption.style.display = "none";
   filterSelect.style.display = "flex";
+  filterMenu.ariaExpanded = false;
 }
 
 function updateValue(value) {
@@ -59,7 +62,7 @@ function buildSelectBox() {
   });
 
   // construit l'élément pour le tri actuellement sélectionné
-  const currentSortSpan = document.createElement("span");
+  const currentSortSpan = document.createElement("button");
   currentSortSpan.classList.add(
     "select__option",
     "selected__option",
@@ -73,13 +76,16 @@ function buildSelectBox() {
   currentSortSpan.appendChild(currentSortLabel);
   currentSortSpan.appendChild(arrowIcon);
   currentSortSpan.addEventListener("click", closeOptions);
+  currentSortSpan.focus();
   filterSelectOption.appendChild(currentSortSpan);
 
   // ajoute les autres tri possibles
   orderedSortOptions.forEach((o) => {
-    const sortSpan = document.createElement("span");
+    const sortSpan = document.createElement("button");
     sortSpan.classList.add("select__option", o.value);
     sortSpan.innerHTML = o.name;
+    sortSpan.ariaSelected = false;
+    sortSpan.role = "option";
     sortSpan.addEventListener("click", function () {
       filterSelected(o.value, o.name);
     });

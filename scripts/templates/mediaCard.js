@@ -22,6 +22,7 @@ export class MediaCard {
     const a = document.createElement("a");
     a.classList.add("media-img-link");
     a.href = "";
+    a.ariaLabel = "Ouvrir caroussel";
     
     a.appendChild(media);
     mediaCard.appendChild(a);
@@ -44,6 +45,7 @@ export class MediaCard {
     const likesCount = document.createElement("span");
     likesCount.classList.add("number-likes", `media-likes-${this.media.id}`);
     likesCount.innerHTML = this.media.likes;
+    likesCount.ariaLabel = `${this.media.likes} mentions j'aime`;
 
     likes.appendChild(likesCount);
     likes.appendChild(heartIcon);
@@ -91,6 +93,7 @@ export class MediaCard {
       });
       const totalLikeCount = document.querySelector(".total-likes");
       totalLikeCount.innerHTML = totalLikes;
+      totalLikeCount.ariaLabel = `${totalLikes} mentions j'aime`;
     };
   }
 }

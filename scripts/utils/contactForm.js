@@ -1,7 +1,8 @@
 import { getPhotographer } from "../pages/photographer.js";
 
+const modal = document.getElementById("contact_modal");
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".contact_button");
+const modalBtn = document.querySelector(".contact_button");
 const formData = document.querySelectorAll(".formData");
 const contactTitle = document.querySelector(".contact");
 const modalCloseBtn = document.querySelectorAll(".close-btn");
@@ -9,7 +10,13 @@ const confirmationMsg = document.querySelector(".confirmation__title");
 const confirmationBtn = document.querySelector(".button-confirm.close-btn");
 const form = document.querySelector("form");
 
-modalBtn.forEach((btn) => btn.addEventListener("click", displayModal));
+const modalFocusableEls = modal.querySelectorAll(
+  'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])'
+);
+const modalFirstFocusableEl = modalFocusableEls[0];
+const modalLastFocusableEl = modalFocusableEls[modalFocusableEls.length - 1];
+
+modalBtn.addEventListener("click", displayModal);
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 
 formData.forEach((formElement) => {
@@ -101,17 +108,51 @@ function displayConfirmation() {
 }
 
 function displayModal() {
-  const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
   modalbg.style.display = "block";
+
+  Array.from(document.querySelector("main").children)
+    .filter((c) => c !== modal)
+    .forEach((c) => (c.ariaHidden = true));
+  document.addEventListener("keyup", handleEscapeKey);
+  modal.addEventListener("keydown", handleFocusModal);
+  modalFirstFocusableEl.focus();
 }
 
 function closeModal() {
-  const modal = document.getElementById("contact_modal");
   confirmationMsg.style.display = "none";
   modal.style.display = "none";
   form.style.display = "block";
   modalbg.style.display = "none";
+
+  Array.from(document.querySelector("main").children)
+    .filter((c) => c !== modal)
+    .forEach((c) => (c.ariaHidden = false));
+  document.removeEventListener("keyup", handleEscapeKey);
+  modal.removeEventListener("keydown", handleFocusModal);
+  modalBtn.focus();
+}
+
+function handleEscapeKey(e) {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+}
+
+function handleFocusModal(e) {
+  if (e.key === "Tab") {
+    if (e.shiftKey) {
+      /* shift + tab */ if (document.activeElement === modalFirstFocusableEl) {
+        modalLastFocusableEl.focus();
+        e.preventDefault();
+      }
+    } /* tab */ else {
+      if (document.activeElement === modalLastFocusableEl) {
+        modalFirstFocusableEl.focus();
+        e.preventDefault();
+      }
+    }
+  }
 }
 
 // Rempli le message de confirmation avec le nom du photographe

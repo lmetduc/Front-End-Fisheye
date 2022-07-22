@@ -2,7 +2,7 @@ import { PhotographerCard } from "../templates/photographerCard.js";
 import { PhotographerFactory } from "../factories/photographerFactory.js";
 import { MediaFactory } from "../factories/mediaFatory.js";
 import { MediaCard } from "../templates/mediaCard.js";
-import { displayLightbox, openLightbox } from "../utils/lightbox.js";
+import { Lightbox } from "../utils/lightbox.js";
 import { PhotographerFooterInfo } from "../templates/photographerFooterInfo.js";
 
 //Mettre le code JavaScript lié à la page photographer.html
@@ -66,8 +66,8 @@ export function displayMedias(medias) {
     const mediaCardDOM = mediaCard.displayMediaCard();
     mediaCardDOM.querySelector(".media-img-link").addEventListener("click", (e) => {
       e.preventDefault();
-      displayLightbox(m, medias);
-      openLightbox();
+      const lightbox = new Lightbox(m, medias);
+      lightbox.open(e);
     });
     mediaSection.appendChild(mediaCardDOM);
   });

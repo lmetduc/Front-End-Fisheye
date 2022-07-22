@@ -11,7 +11,7 @@ export class PhotographerCard {
 
     const img = document.createElement("img");
     img.classList.add("profile");
-    img.alt=`Photo de profil de ${this.photographer.name}`;
+    img.alt = `Photo de profil de ${this.photographer.name}`;
 
     const picture = `assets/photographers/Photographers ID Photos/${this.photographer.portrait}`;
     img.setAttribute("src", picture);
@@ -40,12 +40,16 @@ export class PhotographerCard {
 
     const taglineSpan = document.createElement("span");
     taglineSpan.classList.add("tagline");
+    taglineSpan.role = "note";
+    taglineSpan.ariaLabel = "Phrase du photographe";
     taglineSpan.textContent = this.photographer.tagline;
     p.appendChild(taglineSpan);
 
     const priceSpan = document.createElement("span");
     priceSpan.classList.add("price");
-    priceSpan.textContent = this.photographer.price + "€/jour";
+    priceSpan.ariaLabel = "euros par jour";
+    priceSpan.role = "note";
+    priceSpan.innerHTML = `<span>${this.photographer.price}</span><span aria-hidden="true">€/jour</span>`;
     p.appendChild(priceSpan);
 
     photographerInfo.appendChild(p);
@@ -83,7 +87,7 @@ export class PhotographerCard {
   getPhotographerProfilePicture() {
     const img = document.createElement("img");
     img.classList.add("profile");
-    img.alt=`Photo de profil de ${this.photographer.name}`;
+    img.alt = `Photo de profil de ${this.photographer.name}`;
     const picture = `assets/photographers/Photographers ID Photos/${this.photographer.portrait}`;
     img.setAttribute("src", picture);
 

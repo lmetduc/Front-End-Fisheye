@@ -14,7 +14,7 @@
 
 <body>
   <!--Lightbox-->
-  <section class="lightbox" role="dialog">
+  <section class="lightbox" role="dialog" aria-label="Caroussel">
     <div class="lightbox__windows">
       <button class="close" aria-label="Fermer la fenêtre">
         <i class="fa-solid fa-xmark close__lightbox__media"></i>
@@ -38,17 +38,15 @@
     </div>
     <!--Filter-->
     <section class="filter">
-      <h3 id="trierPar">Trier par :</h3>
-      <div class="filter__menu">
-
-        <div class="filter__select">
+      <label id="trierPar">Trier par :</label>
+      <div class="filter__menu" role="listbox" aria-labelledby="trierPar" aria-controls="toggleFilterOptions"  aria-expanded="false">
+        <button class="filter__select" role="option" aria-selected="true">
           <!-- <a href aria-label="Cliquer sur le filtre"> -->
             <label>Popularité</label>
             <i class="filter__arrow fas fa-angle-down"></i>
           <!-- </a> -->
-        </div>
-        <div class="filter__select__option"></div>
-
+        </button>
+        <div id="toggleFilterOptions" class="filter__select__option"></div>
       </div>
 
     </section>
@@ -99,6 +97,7 @@
     </div>
   </main>
   <script type="module" src="scripts/pages/photographer.js"></script>
+  <script type="module" src="scripts/utils/contactForm.js"></script>
   <script type="module" src="scripts/utils/filter.js"></script>
 </body>
 
