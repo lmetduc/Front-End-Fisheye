@@ -4,13 +4,6 @@
   display: none;
 }
 
-.photograph-header {
-  display: flex;
-  background-color: #fafafa;
-  height: 300px;
-  margin: 0 100px;
-}
-
 .photographer-card {
   max-width: unset;
   display: flex;
@@ -100,11 +93,23 @@ form textarea {
 }
 
 .photograph-header {
+  background-color: #fafafa;
+  min-height: 300px;
+  margin: 0 100px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   flex-wrap: wrap;
   justify-items: center;
   align-items: center;
+}
+
+@media (max-width: 400px) {
+  .photograph-header {
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr;
+    margin: 0 10px;
+    gap: 20px;
+  }
 }
 
 .photographer-profile-info {
@@ -123,6 +128,13 @@ form textarea {
   align-items: center;
   flex-wrap: wrap;
   margin: 40px 100px 0 100px;
+}
+
+@media (max-width: 400px) {
+  .media-section {
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+  }
 }
 
 .media {
@@ -158,6 +170,16 @@ form textarea {
   justify-content: space-between;
   margin-top: 20px;
   color: #901c1c;
+}
+
+@media (max-width: 400px) {
+  .photo-title {
+    gap: 20px;
+  }
+
+  .likes {
+    min-width: fit-content;
+  }
 }
 
 .number-likes, .total-likes {
@@ -292,7 +314,14 @@ form textarea {
   justify-content: start;
   margin: 48px 100px 0 100px;
   font-weight: 500;
-  height: 56px;
+  min-height: 56px;
+  gap: 32px;
+}
+
+@media (max-width: 400px) {
+  .filter {
+    flex-direction: column;
+  }
 }
 
 a {
@@ -301,12 +330,10 @@ a {
 }
 
 .filter label {
-  margin-right: 32px;
   font-size: 22px;
 }
 
 .filter__menu {
-  width: 224px;
   position: relative;
 }
 
@@ -348,6 +375,13 @@ a {
   z-index: 1;
   width: 224px;
   top: -28px;
+}
+
+@media (max-width: 400px) {
+  .filter__select__option {
+    top: 0;
+    transform: translateX(-50%);
+  }
 }
 
 .select__option {
@@ -404,4 +438,11 @@ a {
   justify-content: space-between;
   padding: 10px;
   color: #000000;
+}
+
+@media (max-width: 400px) {
+  .photographer-info-container {
+    float: unset;
+    margin: 0 auto;
+  }
 }
