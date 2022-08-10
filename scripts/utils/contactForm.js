@@ -5,9 +5,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelector(".contact_button");
 const formData = document.querySelectorAll(".formData");
 const contactTitle = document.querySelector(".contact");
-const modalCloseBtn = document.querySelectorAll(".close-btn");
+const modalCloseBtn = document.querySelector(".close-btn");
 const confirmationMsg = document.querySelector(".confirmation__title");
-const confirmationBtn = document.querySelector(".button-confirm.close-btn");
 const form = document.querySelector("form");
 
 const modalFocusableEls = modal.querySelectorAll(
@@ -17,7 +16,7 @@ const modalFirstFocusableEl = modalFocusableEls[0];
 const modalLastFocusableEl = modalFocusableEls[modalFocusableEls.length - 1];
 
 modalBtn.addEventListener("click", displayModal);
-modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+modalCloseBtn.addEventListener("click", closeModal);
 
 formData.forEach((formElement) => {
   const input = formElement.querySelector(".input");
@@ -105,6 +104,7 @@ form.addEventListener("submit", validateForm);
 function displayConfirmation() {
   confirmationMsg.style.display = "block";
   form.style.display = "none";
+  modalCloseBtn.focus();
 }
 
 function displayModal() {

@@ -20,6 +20,7 @@ export class PhotographerFooterInfo {
         likesCountSpan.innerHTML = likes;
         likesCountSpan.ariaLabel = `${likes} mentions j'aime`;
         likesCountSpan.classList.add("total-likes");
+        likesCountSpan.role = "note";
 
         const heartIcon = document.createElement("i");
         heartIcon.classList.add("fa-solid", "fa-heart");
@@ -31,6 +32,7 @@ export class PhotographerFooterInfo {
         priceSpan.classList.add("info-price");
         priceSpan.textContent = this.photographer.price + "€/jour";
         priceSpan.ariaLabel = this.photographer.price + "€ par jour";
+        priceSpan.role = "note";
 
         container.appendChild(likesCount);
         container.appendChild(priceSpan);

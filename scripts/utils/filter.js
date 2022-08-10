@@ -6,7 +6,7 @@ import {
 
 const filterMenu = document.querySelector(".filter__menu");
 const filterSelect = document.querySelector(".filter__select");
-const filterSelectLabel = document.querySelector(".filter__select label");
+const filterSelectLabel = document.querySelector(".filter__select span");
 const filterSelectOption = document.querySelector(".filter__select__option");
 
 let currentSort = "like";
@@ -68,7 +68,7 @@ function buildSelectBox() {
     "selected__option",
     currentSort
   );
-  const currentSortLabel = document.createElement("label");
+  const currentSortLabel = document.createElement("span");
   currentSortLabel.innerHTML = currentSortName;
   const arrowIcon = document.createElement("i");
   arrowIcon.classList.add("filter__arrow", "fas", "fa-angle-up");
