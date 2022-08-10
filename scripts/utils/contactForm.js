@@ -95,6 +95,10 @@ function validateForm(e) {
 
   if (isValid) {
     displayConfirmation();
+    console.log("Prénom : " + form["prenom"].value);
+    console.log("Nom : " + form["nom"].value);
+    console.log("Mail: " + form["mail"].value);
+    console.log("Message : " + form["msg"].value);
     form.reset();
   }
 }
