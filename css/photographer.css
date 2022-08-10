@@ -153,7 +153,10 @@ form textarea {
   object-fit: cover;
 }
 
-.media .likes .fa-heart {
+.photo-title .likes {
+  border: none;
+  background: none;
+  color: #901c1c;
   cursor: pointer;
 }
 
@@ -354,6 +357,7 @@ a {
   object-fit: cover;
   padding: 0 20px;
   border: none;
+  min-width: 180px;
 }
 
 .filter__arrow {

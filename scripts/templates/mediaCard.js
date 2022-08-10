@@ -32,8 +32,10 @@ export class MediaCard {
     const title = document.createElement("span");
     title.innerHTML = this.media.title;
 
-    const likes = document.createElement("span");
+    const likes = document.createElement("button");
     likes.classList.add("likes");
+    likes.ariaLabel = `${this.media.likes} mentions j'aime`;
+
     const heartIcon = document.createElement("i");
     heartIcon.classList.add("fa-heart", `media-heart-${this.media.id}`);
     if (this.media.liked) {
@@ -41,11 +43,12 @@ export class MediaCard {
     } else {
       heartIcon.classList.add("fa-regular");
     }
+    heartIcon.ariaHidden = true;
 
     const likesCount = document.createElement("span");
     likesCount.classList.add("number-likes", `media-likes-${this.media.id}`);
     likesCount.innerHTML = this.media.likes;
-    likesCount.ariaLabel = `${this.media.likes} mentions j'aime`;
+    likesCount.ariaHidden = true;
 
     likes.appendChild(likesCount);
     likes.appendChild(heartIcon);
@@ -55,7 +58,7 @@ export class MediaCard {
 
     mediaCard.appendChild(p);
 
-    heartIcon.addEventListener(
+    likes.addEventListener(
       "click",
       this.likeMedia(this.media, this.medias)
     );

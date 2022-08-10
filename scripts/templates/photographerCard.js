@@ -47,9 +47,8 @@ export class PhotographerCard {
 
     const priceSpan = document.createElement("span");
     priceSpan.classList.add("price");
-    priceSpan.ariaLabel = "euros par jour";
-    priceSpan.role = "note";
-    priceSpan.innerHTML = `<span>${this.photographer.price}</span><span aria-hidden="true">€/jour</span>`;
+    priceSpan.ariaLabel = `${this.photographer.price} euros par jour`;
+    priceSpan.innerHTML = `<span aria-hidden="true">${this.photographer.price}</span><span aria-hidden="true">€/jour</span>`;
     p.appendChild(priceSpan);
 
     photographerInfo.appendChild(p);
